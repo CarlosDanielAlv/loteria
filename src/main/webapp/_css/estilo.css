@@ -1,0 +1,27 @@
+/* 
+    Created on : 16 de mai de 2021, 15:16:09
+    Author     : Carlos
+*/
+
+.backgroundBanner{
+    background: url("../_img/LOTERIA.png") no-repeat;
+    height: 400px;
+}
+
+nav{
+    background-color: #DFE6EC;
+}
+
+.mesmLinhaEsquerda{
+    display: inline;
+    float: left;
+}
+
+.mesmLinhaDireita{
+    display: inline;
+    float: right
+}
+
+.lblTamanho{
+    width: 100px;
+}
