@@ -35,9 +35,9 @@
         <!-- BARRA DE NAVEGAÇÃO -->
         <nav class="m-md-3 site-header sticky-top py-1">
             <div class="container d-flex flex-column flex-md-row justify-content-between">
-                <a class="py-2 d-none d-md-inline-block" href="https://getbootstrap.com.br/docs/4.1/examples/product/#">NOVO JOGO</a>
-                <a class="py-2 d-none d-md-inline-block" href="https://getbootstrap.com.br/docs/4.1/examples/product/#">MEUS JOGOS</a>
-                <a class="py-2 d-none d-md-inline-block" href="https://getbootstrap.com.br/docs/4.1/examples/product/#">SOBRE</a>
+                <a class="py-2 d-none d-md-inline-block" href="">NOVO JOGO</a>
+                <a class="py-2 d-none d-md-inline-block" href="MeusJogos.jsp">MEUS JOGOS</a>
+                <a class="py-2 d-none d-md-inline-block" href="sobre.html">SOBRE</a>
             </div>
         </nav>
 
@@ -49,7 +49,7 @@
                         <div class="my-3 py-3">
                             <span><h5 style="color: black;" class="mesmLinhaEsquerda">JOGO(S:)</h5></span>
                             <span><h5 style="color: black;" class="mesmLinhaDireita">QUANTIDADE</h5></span>
-                            
+
                             <!-- MEGA SENA -->
                             <div class="form-group">
                                 <div class="input-group mb-3">
@@ -69,7 +69,7 @@
 
                             <!-- LOTO FÁCIL -->
                             <div class="form-group">
-                                
+
                                 <div class="input-group mb-3">
 
                                     <div class="input-group-prepend">
@@ -84,10 +84,10 @@
                                     <input type="text" class="form-control" aria-label="Input text com checkbox">
                                 </div>
                             </div>
-                            
-                             <!-- LOTO QUINA -->
+
+                            <!-- LOTO QUINA -->
                             <div class="form-group">
-                                
+
                                 <div class="input-group mb-3">
 
                                     <div class="input-group-prepend">
@@ -106,8 +106,23 @@
 
                         </div>
                     </div>
+                    
                     <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
                         <div class="my-3 p-3">
+
+                            <!-- TABELA RESULTADOS DE JOGOS -->
+                            <table class="table">
+                                <h5 style="color: white; align: center">MEGA SENA</h5>
+                               
+                                <tbody>
+                                    <c:forEach items="${arrayEstoque}" var="estoque">
+                                        <tr>
+                                            <td><c:out value="${estoque.getEstoque_id()}" /></td>
+                                            <td><c:out value="${estoque.descricao()}" /></td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
 
 
                         </div>
@@ -115,63 +130,5 @@
                 </div>
             </form>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <h1>Tabela Estoque</h1>
-        <!-- TABELA ESTOQUE -->
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Descrição</th>
-                    <th scope="col">Código do Produto</th>
-                    <th scope="col">Unidade</th>
-                    <th scope="col">Preço</th>
-                    <th scope="col">Estoque</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach items="${arrayEstoque}" var="estoque">
-                    <tr>
-                        <td><c:out value="${estoque.getEstoque_id()}" /></td>
-                        <td><c:out value="${estoque.getDescricao()}" /></td>
-                        <td><c:out value="${estoque.getCodigo()}" /></td>
-                        <td><c:out value="${estoque.getUnidade()}" /></td>
-                        <td>R$ <c:out value="${estoque.getPreco()}" /></td>
-                        <td><c:out value="${estoque.getEstoque()}" /></td>
-
-                        <td><a class="btn btn-secondary btn-sm"
-                               href="StockController?action=edit&estoque_id=<c:out value ="${estoque.getEstoque_id()}"/>">Editar</a>
-                            <a class="btn btn-danger btn-sm"
-                               href="StockController?action=delete&estoque_id=<c:out value ="${estoque.getEstoque_id()}"/>">Delete</a>
-                        </td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
     </body>
 </html>

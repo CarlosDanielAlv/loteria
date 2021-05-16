@@ -5,14 +5,14 @@ import br.com.model.EstoqueModel;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
 
 /**
  *
@@ -36,19 +36,16 @@ public class EstoqueController extends HttpServlet {
 
         if (action.equalsIgnoreCase("listStock")) {
             forward = LISTA_ESTOQUE;
-
-            List<EstoqueModel> produtos = new ArrayList<>();
-
+            
             try {
-                produtos = estoqueBO.getAll();
+                listaEstoque = (ArrayList<EstoqueModel>) estoqueBO.getAll();
                 request.setAttribute("arrayEstoque", listaEstoque);
-            } catch (Exception e) {
-                System.out.println("Erro ao buscar produtos: " + e.getMessage());
+            } catch (Exception ex) {
+                Logger.getLogger(EstoqueController.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            
         }
-        
+
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
 

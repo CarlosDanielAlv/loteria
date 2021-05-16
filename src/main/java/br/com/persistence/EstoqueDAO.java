@@ -43,11 +43,11 @@ public class EstoqueDAO {
     }
 
     @SuppressWarnings("unchecked")
-    public List<EstoqueModel> getAll() throws Exception {
+    public ArrayList<EstoqueModel> getAll() throws Exception {
         EntityManager em = HibernateUtil.getEntityManager();
         List<EstoqueModel> produtos = new ArrayList<>();
         try {
-            Query query = em.createQuery("FROM tbprodutos");
+            Query query = em.createQuery("SELECT c FROM EstoqueModel c");
             produtos = query.getResultList();
         } catch (Exception e) {
             System.out.println("Erro no GetAll:  " + e.getMessage());
@@ -57,7 +57,7 @@ public class EstoqueDAO {
             em.close();
             
         }
-        return produtos;
+        return (ArrayList<EstoqueModel>) produtos;
     }
 
 }
