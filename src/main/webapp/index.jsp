@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
         <link rel="stylesheet" href="_css/estilo.css">
-        <script type="text/javascript" src="_JS/script.js">
+        <script type="text/javascript" src="_JS/script.js"></script>
 
         <title>Estoque - Lista</title>
     </head>
@@ -46,7 +46,7 @@
         <div class="container">
             <form>
                 <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-                    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+                    <div style="width: 800px" class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
                         <div class="my-3 py-3">
                             <span><h5 style="color: black;" class="mesmLinhaEsquerda">JOGO(S:)</h5></span>
                             <span><h5 style="color: black;" class="mesmLinhaDireita">QUANTIDADE</h5></span>
@@ -64,7 +64,7 @@
                                         </div>
 
                                     </div>
-                                    <input type="text" class="form-control" aria-label="Input text com checkbox" maxlength="2">
+                                    <input type="text" id="qjog" class="form-control" aria-label="Input text com checkbox" maxlength="2">
                                 </div>
                             </div>
 
@@ -104,19 +104,18 @@
                                 </div>
                             </div>
 
-                            <button class="btn btn-success" type="submit" onclick="megaSena()">GERAR JOGOS</button>
-                            <button class="btn btn-danger" type="submit" onclick="resetar()">LIMPAR JOGOS</button>
+                            <button class="btn btn-success" type="button" onclick="megaSena()">GERAR JOGOS</button>
+                            <button class="btn btn-danger" type="button" onclick="resetar()">LIMPAR JOGOS</button>
 
                         </div>
                     </div>
 
 
-                    <div style="color: white"class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                    <div style="color: white; width: 950px"class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 
                         <div class="my-3 p-3">
                             <h3>Mega Sena</h3>
-                            <p>52 12 30 60 15 22</p>
-                            <p>52 12 30 60 15 22</p>
+                            <div id="ext"></div> 
                         </div>
                         <div class="my-3 p-3">
                             <h3>Quina</h3>
