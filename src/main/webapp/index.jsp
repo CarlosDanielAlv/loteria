@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
         <link rel="stylesheet" href="_css/estilo.css">
+        <script type="text/javascript" src="_JS/script.js">
 
         <title>Estoque - Lista</title>
     </head>
@@ -63,7 +64,7 @@
                                         </div>
 
                                     </div>
-                                    <input type="text" class="form-control" aria-label="Input text com checkbox">
+                                    <input type="text" class="form-control" aria-label="Input text com checkbox" maxlength="2">
                                 </div>
                             </div>
 
@@ -81,7 +82,7 @@
                                         </div>
 
                                     </div>
-                                    <input type="text" class="form-control" aria-label="Input text com checkbox">
+                                    <input type="text" class="form-control" aria-label="Input text com checkbox" maxlength="2">
                                 </div>
                             </div>
 
@@ -99,36 +100,40 @@
                                         </div>
 
                                     </div>
-                                    <input type="text" class="form-control" aria-label="Input text com checkbox">
+                                    <input type="text" class="form-control" aria-label="Input text com checkbox" maxlength="2">
                                 </div>
                             </div>
 
+                            <button class="btn btn-success" type="submit" onclick="megaSena()">GERAR JOGOS</button>
+                            <button class="btn btn-danger" type="submit" onclick="resetar()">LIMPAR JOGOS</button>
 
                         </div>
                     </div>
-                    
-                    <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+
+
+                    <div style="color: white"class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+
                         <div class="my-3 p-3">
-
-                            <!-- TABELA RESULTADOS DE JOGOS -->
-                            <table class="table">
-                                <h5 style="color: white; align: center">MEGA SENA</h5>
-                               
-                                <tbody>
-                                    <c:forEach items="${arrayEstoque}" var="estoque">
-                                        <tr>
-                                            <td><c:out value="${estoque.getEstoque_id()}" /></td>
-                                            <td><c:out value="${estoque.descricao()}" /></td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
-
-
+                            <h3>Mega Sena</h3>
+                            <p>52 12 30 60 15 22</p>
+                            <p>52 12 30 60 15 22</p>
                         </div>
+                        <div class="my-3 p-3">
+                            <h3>Quina</h3>
+                            <p>52 12 30 60 15 22</p>
+                        </div>
+                        <div class="my-3 p-3">
+                            <h3>Loto Fácil</h3>
+                            <p>52 12 30 60 15 22</p>
+                        </div>
+
+
                     </div>
                 </div>
+
+
             </form>
+
         </div>
     </body>
 </html>

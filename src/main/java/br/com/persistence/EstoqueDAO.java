@@ -31,8 +31,6 @@ public class EstoqueDAO {
         EstoqueModel estoque = null;
         try {
             estoque = em.find(EstoqueModel.class, id);
-            System.out.println("Descrição: " + estoque.getDescricao());
-            System.out.println("Codigo: " + estoque.getCodigo());
         } catch (Exception e) {
             em.getTransaction().rollback();
             throw new Exception(e);
@@ -41,7 +39,43 @@ public class EstoqueDAO {
         }
         return estoque;
     }
+    
+    public EstoqueModel update(EstoqueModel sModel) throws Exception {
+		EntityManager em = HibernateUtil.getEntityManager();
+		EstoqueModel estoqueAtualizado = null;
+		try {
+			em.getTransaction().begin();
+			estoqueAtualizado = em.merge(sModel);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			em.getTransaction().rollback();
+			throw new Exception(e);
+		} finally {
+			em.close();
+		}
+		return estoqueAtualizado;
+	}
 
+	public void delete(Integer id) throws Exception {
+		EntityManager em = HibernateUtil.getEntityManager();
+		try {
+			em.getTransaction().begin();
+			EstoqueModel Funcionario = em.find(EstoqueModel.class, id);
+			em.remove(Funcionario);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			em.getTransaction().rollback();
+			throw new Exception(e);
+		} finally {
+			em.close();
+		}
+
+	}
+
+    /**
+	 * Get all Users
+	 * @return
+	 */
     @SuppressWarnings("unchecked")
     public ArrayList<EstoqueModel> getAll() throws Exception {
         EntityManager em = HibernateUtil.getEntityManager();

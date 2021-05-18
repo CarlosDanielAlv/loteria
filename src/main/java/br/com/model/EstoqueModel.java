@@ -34,8 +34,18 @@ public class EstoqueModel {
     
     @Column(name = "estoque")
     private int estoque;
-    
 
+    public EstoqueModel() {
+    }
+    
+    public EstoqueModel(String descricao, String codigo, String unidade, float preco, int estoque) {
+        this.descricao = descricao;
+        this.codigo = codigo;
+        this.unidade = unidade;
+        this.preco = preco;
+        this.estoque = estoque;
+    }
+    
     public int getEstoque_id() {
         return estoque_id;
     }
