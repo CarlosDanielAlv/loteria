@@ -1,6 +1,6 @@
 package br.com.persistence;
 
-import br.com.model.EstoqueModel;
+import br.com.model.LoteriaModel;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -10,9 +10,9 @@ import org.graalvm.compiler.nodes.BreakpointNode;
 /**
  * @author Carlo
  */
-public class EstoqueDAO {
+public class LoteriaDAO {
 
-    public void save(EstoqueModel estoque) throws Exception {
+    public void save(LoteriaModel estoque) throws Exception {
         EntityManager em = HibernateUtil.getEntityManager();
         try {
             em.getTransaction().begin();
@@ -26,11 +26,11 @@ public class EstoqueDAO {
         }
     }
 
-    public EstoqueModel find(Integer id) throws Exception {
+    public LoteriaModel find(Integer id) throws Exception {
         EntityManager em = HibernateUtil.getEntityManager();
-        EstoqueModel estoque = null;
+        LoteriaModel estoque = null;
         try {
-            estoque = em.find(EstoqueModel.class, id);
+            estoque = em.find(LoteriaModel.class, id);
         } catch (Exception e) {
             em.getTransaction().rollback();
             throw new Exception(e);
@@ -40,9 +40,9 @@ public class EstoqueDAO {
         return estoque;
     }
     
-    public EstoqueModel update(EstoqueModel sModel) throws Exception {
+    public LoteriaModel update(LoteriaModel sModel) throws Exception {
 		EntityManager em = HibernateUtil.getEntityManager();
-		EstoqueModel estoqueAtualizado = null;
+		LoteriaModel estoqueAtualizado = null;
 		try {
 			em.getTransaction().begin();
 			estoqueAtualizado = em.merge(sModel);
@@ -60,7 +60,7 @@ public class EstoqueDAO {
 		EntityManager em = HibernateUtil.getEntityManager();
 		try {
 			em.getTransaction().begin();
-			EstoqueModel Funcionario = em.find(EstoqueModel.class, id);
+			LoteriaModel Funcionario = em.find(LoteriaModel.class, id);
 			em.remove(Funcionario);
 			em.getTransaction().commit();
 		} catch (Exception e) {
@@ -77,9 +77,9 @@ public class EstoqueDAO {
 	 * @return
 	 */
     @SuppressWarnings("unchecked")
-    public ArrayList<EstoqueModel> getAll() throws Exception {
+    public ArrayList<LoteriaModel> getAll() throws Exception {
         EntityManager em = HibernateUtil.getEntityManager();
-        List<EstoqueModel> produtos = new ArrayList<>();
+        List<LoteriaModel> produtos = new ArrayList<>();
         try {
             Query query = em.createQuery("SELECT c FROM EstoqueModel c");
             produtos = query.getResultList();
@@ -91,7 +91,7 @@ public class EstoqueDAO {
             em.close();
             
         }
-        return (ArrayList<EstoqueModel>) produtos;
+        return (ArrayList<LoteriaModel>) produtos;
     }
 
 }

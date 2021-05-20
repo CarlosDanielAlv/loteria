@@ -115,7 +115,7 @@
 
                         <div class="my-3 p-3">
                             <h3>Mega Sena</h3>
-                            <div id="ext"></div> 
+                            <div id="ext" name="mega_sena"></div> 
                         </div>
                         <div class="my-3 p-3">
                             <h3>Quina</h3>

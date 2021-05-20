@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tbprodutos")
-public class EstoqueModel {
+public class LoteriaModel {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto Incremente
@@ -35,10 +35,10 @@ public class EstoqueModel {
     @Column(name = "estoque")
     private int estoque;
 
-    public EstoqueModel() {
+    public LoteriaModel() {
     }
     
-    public EstoqueModel(String descricao, String codigo, String unidade, float preco, int estoque) {
+    public LoteriaModel(String descricao, String codigo, String unidade, float preco, int estoque) {
         this.descricao = descricao;
         this.codigo = codigo;
         this.unidade = unidade;
